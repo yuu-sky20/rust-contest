@@ -1,5 +1,6 @@
 use std::str::FromStr;
 use std::fmt::Debug;
+// use std::collections::VecDeque;
 
 fn get_line() -> String {
     let mut _ret = String::new();
@@ -14,15 +15,16 @@ where T: FromStr, <T as FromStr>::Err : Debug {
     buf.split_whitespace().map(|e| T::from_str(e).unwrap()).collect()
 }
 
-fn geta() -> i32 {
+fn geta() -> i64 {
     get_line().split_whitespace()
-        .filter_map(|k| k.parse().ok()).collect::<Vec<i32>>()[0]
-}
-
-fn carry_and_fix(res: &mut Vec<i32>) {
-
+        .filter_map(|k| k.parse().ok()).collect::<Vec<i64>>()[0]
 }
 
 fn main() {
 
 }
+
+
+// #[test]
+// fn test_main() {
+// }
