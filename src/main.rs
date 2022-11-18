@@ -75,6 +75,4 @@ fn geta() -> i64 {
 }
 
 fn main() {
-    let line: Vec<char> = read_line();
-    let (x, y) = (line[0], line[1]);
 }
