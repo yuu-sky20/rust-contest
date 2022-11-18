@@ -1,8 +1,12 @@
 use std::str::FromStr;
 use std::fmt::Debug;
+// use std::collections::LinkedList;
 // use std::collections::VecDeque;
 // use std::collections::HashMap;
 // use std::collections::HashSet;
+// use std::collections::BTreeMap;
+// use std::collections::BTreeSet;
+// use std::collections::BinaryHeap;
 
 macro_rules! chmin {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
@@ -71,28 +75,6 @@ fn geta() -> i64 {
 }
 
 fn main() {
-    let line: Vec<usize> = read_line();
-    let (h, w) = (line[0], line[1]);
-    const n: usize = 30_usize;
-    let mut dp = [[0i64; n]; n];
-
-    dp[0][0] = 1;
-
-    for i in 0..n {
-        for j in 0..n {
-            if i > 0 {
-                dp[i][j] += dp[i-1][j];
-            }
-            if j > 0 {
-                dp[i][j] += dp[i][j-1];
-            }
-        }
-    }
-
-    println!("{}", dp[h-1][w-1]);
+    let line: Vec<char> = read_line();
+    let (x, y) = (line[0], line[1]);
 }
-
-
-// #[test]
-// fn test_main() {
-// }
