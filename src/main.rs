@@ -66,6 +66,30 @@ macro_rules! floor {
     ($x:expr, $scale:expr) => (($x * $scale).floor() / $scale)
 }
 
+pub trait LexicalPermutation {
+    fn next_permutation(&mut self) -> bool;
+}
+
+impl<T> LexicalPermutation for [T] where T: Ord {
+    fn next_permutation(&mut self) -> bool {
+        if self.len() < 2 { return false; }
+        let mut i = self.len() - 1;
+        while i > 0 && self[i-1] >= self[i] {
+            i -= 1;
+        }
+        if i == 0 {
+            return false;
+        }
+        let mut j = self.len() - 1;
+        while j >= i && self[j] <= self[i-1]  {
+            j -= 1;
+        }
+        self.swap(j, i-1);
+        self[i..].reverse();
+        true
+    }
+}
+
 fn get_line() -> String {
     let mut _ret = String::new();
     std::io::stdin().read_line(&mut _ret).ok();
@@ -86,4 +110,6 @@ fn geta() -> i64 {
 
 fn main() {
     // let line: Vec<i64> = read_line();
+    // let n = geta();
+
 }
